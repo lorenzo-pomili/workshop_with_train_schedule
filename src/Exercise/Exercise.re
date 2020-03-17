@@ -10,9 +10,18 @@ type t = {
   reports: list(DayReport.t),
 };
 
+let onAddReport = (exercise, setSelectedReport, onExercisUpdate) => {
+  setSelectedReport(_s => Some(exercise.reports->List.length));
+  onExercisUpdate({
+    ...exercise,
+    reports: exercise.reports @ [DayReport.newDayReport()],
+  });
+};
+
 [@react.component]
 let make = (~exercise: t, ~onExercisUpdate) => {
   let (selectedReport, setSelectedReport) = useState(() => None);
+
   <div className=Exercise_style.exerciseContainer>
     <div className=Exercise_style.exerciseName> exercise.name->s </div>
     {exercise.reports
@@ -33,13 +42,9 @@ let make = (~exercise: t, ~onExercisUpdate) => {
        })}
     <div
       className=Exercise_style.addDayReportButton
-      onClick={_e => {
-        setSelectedReport(_s => Some(exercise.reports->List.length));
-        onExercisUpdate({
-          ...exercise,
-          reports: exercise.reports @ [DayReport.newDayReport()],
-        });
-      }}>
+      onClick={_e =>
+        onAddReport(exercise, setSelectedReport, onExercisUpdate)
+      }>
       <span className=Exercise_style.addDayReportSpan> ">"->s </span>
     </div>
   </div>;
