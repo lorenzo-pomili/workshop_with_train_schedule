@@ -45,7 +45,13 @@ let make = (~exercise: t, ~onExercisUpdate) => {
       onClick={_e =>
         onAddReport(exercise, setSelectedReport, onExercisUpdate)
       }>
-      <span className=Exercise_style.addDayReportSpan> ">"->s </span>
+      <span className=Exercise_style.addDayReportSpan>
+        <svg
+          viewBox="0 0 500 500"
+          style={ReactDOMRe.Style.make(~width="10px", ())}>
+          <path fill="#000000" d="M500 250 L0 500 L0 0 Z" />
+        </svg>
+      </span>
     </div>
   </div>;
 };

@@ -15,6 +15,7 @@ let addDayReportButton =
 
 let addDayReportSpan =
   style([
+    padding(px(1)),
     marginLeft(px(3)),
     border(px(1), solid, rgba(100, 100, 100, 1.)),
     backgroundColor(rgba(200, 200, 200, 1.)),
