@@ -2,7 +2,12 @@ open Css;
 
 let exerciseContainer = style([display(`table)]);
 let exerciseName =
-  style([display(`tableCell), verticalAlign(middle), paddingRight(3->px)]);
+  style([
+    display(`tableCell),
+    width(px(75)),
+    verticalAlign(middle),
+    paddingRight(3->px),
+  ]);
 
 let addDayReportButton =
   style([
