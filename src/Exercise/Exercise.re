@@ -1,5 +1,6 @@
 open Belt;
 open React;
+open Utils;
 open ReactUtils;
 
 let updateHandler = (newReport, reports, index) =>
@@ -18,11 +19,14 @@ let onAddReport = (exercise, setSelectedReport, onExercisUpdate) => {
   });
 };
 
-let onRemoveDayReport = (onExercisUpdate, exercise, i) =>
-  onExercisUpdate({
-    ...exercise,
-    reports: exercise.reports->List.keepWithIndex((_r, idx) => i !== idx),
-  });
+let onRemoveDayReport = (onExercisUpdate, exercise, i) => {
+  confirm("Are you sure to delete it?")
+    ? onExercisUpdate({
+        ...exercise,
+        reports: exercise.reports->List.keepWithIndex((_r, idx) => i !== idx),
+      })
+    : ();
+};
 
 [@react.component]
 let make = (~exercise: t, ~onExercisUpdate) => {
