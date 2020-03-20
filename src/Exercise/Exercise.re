@@ -18,6 +18,12 @@ let onAddReport = (exercise, setSelectedReport, onExercisUpdate) => {
   });
 };
 
+let onRemoveDayReport = (onExercisUpdate, exercise, i) =>
+  onExercisUpdate({
+    ...exercise,
+    reports: exercise.reports->List.keepWithIndex((_r, idx) => i !== idx),
+  });
+
 [@react.component]
 let make = (~exercise: t, ~onExercisUpdate) => {
   let (selectedReport, setSelectedReport) = useState(() => None);
@@ -31,6 +37,7 @@ let make = (~exercise: t, ~onExercisUpdate) => {
              report
              inEdit={selectedReport == Some(i)}
              onSelection={_e => setSelectedReport(_s => Some(i))}
+             onRemove={_e => onRemoveDayReport(onExercisUpdate, exercise, i)}
              onReportUpdate={newReport =>
                onExercisUpdate({
                  ...exercise,

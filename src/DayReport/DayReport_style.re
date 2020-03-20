@@ -18,3 +18,8 @@ let buttonPlus =
     buttonBorder(rgba(100, 100, 100, 1.)),
     backgroundColor(rgba(200, 200, 200, 1.)),
   ]);
+
+let buttonsContainer =
+  style([position(absolute), textAlign(center), marginTop(px(-17))]);
+
+let buttonRemove = style([cursor(`pointer)]);
