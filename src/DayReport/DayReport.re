@@ -7,7 +7,7 @@ let updateHandler = (newSingleReport, report, index) =>
 
 type t = list(SingleReport.t);
 
-let newDayReport = (): t => [SingleReport.newSingleReport()];
+let newDayReport: t = [SingleReport.newSingleReport];
 
 [@react.component]
 let make = (~report: t, ~onSelection, ~inEdit, ~onReportUpdate, ~onRemove) => {

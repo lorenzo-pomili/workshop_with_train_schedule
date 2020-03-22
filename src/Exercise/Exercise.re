@@ -11,11 +11,13 @@ type t = {
   reports: list(DayReport.t),
 };
 
+let newExercise: t = {name: "", reports: [DayReport.newDayReport]};
+
 let onAddReport = (exercise, setSelectedReport, onExercisUpdate) => {
   setSelectedReport(_s => Some(exercise.reports->List.length));
   onExercisUpdate({
     ...exercise,
-    reports: exercise.reports @ [DayReport.newDayReport()],
+    reports: exercise.reports @ [DayReport.newDayReport],
   });
 };
 

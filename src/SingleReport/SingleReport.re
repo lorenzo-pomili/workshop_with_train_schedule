@@ -4,7 +4,7 @@ open ReactUtils;
 
 type t = (float, int);
 
-let newSingleReport = (): t => (0., 0);
+let newSingleReport: t = (0., 0);
 
 [@react.component]
 let make = (~data: t, ~inEdit, ~isLast, ~onDataUpdate) => {
