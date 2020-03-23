@@ -28,27 +28,27 @@ let makeContainer = text => {
 };
 
 module MockDayReport = {
-  let mockDaySchedule: DaySchedule.t = {
-    title: "test day schedule",
-    exercises: [
-      {
-        name: "test exercise",
-        reports: [
-          [(10., 12), (12., 8), (12., 8)],
-          [(10., 12), (12., 8), (12., 8)],
-          [(10., 12), (12., 8), (12., 8)],
-        ],
-      },
-      {
-        name: "test exercise2",
-        reports: [
-          [(10., 12), (12., 8), (12., 8)],
-          [(10., 12), (12., 8), (12., 8)],
-          [(10., 12), (12., 8), (12., 8)],
-        ],
-      },
-    ],
-  };
+  // let mockDaySchedule: DaySchedule.t = {
+  //   title: "test day schedule",
+  //   exercises: [
+  //     {
+  //       name: Some("test exercise"),
+  //       reports: [
+  //         [(10., 12), (12., 8), (12., 8)],
+  //         [(10., 12), (12., 8), (12., 8)],
+  //         [(10., 12), (12., 8), (12., 8)],
+  //       ],
+  //     },
+  //     {
+  //       name: Some("test exercise2"),
+  //       reports: [
+  //         [(10., 12), (12., 8), (12., 8)],
+  //         [(10., 12), (12., 8), (12., 8)],
+  //         [(10., 12), (12., 8), (12., 8)],
+  //       ],
+  //     },
+  //   ],
+  // };
 
   [@react.component]
   let make = () => {
@@ -60,7 +60,7 @@ module MockDayReport = {
   };
 };
 
-ReactDOMRe.render(<MockDayReport />, makeContainer("test elements")) /* )*/ /*   <ReasonUsingJSUsingReason />*/ /*   makeContainer("Reason Using JS Using Reason")*/;
+ReactDOMRe.render(<MockDayReport />, makeContainer("test elements")) /* )*/ /* ReactDOMRe.render*/ /*   makeContainer("Reason Using JS Using Reason")*/ /*   <ReasonUsingJSUsingReason />*/;
 
 // All 4 examples.
 // ReactDOMRe.render(
@@ -78,4 +78,3 @@ ReactDOMRe.render(<MockDayReport />, makeContainer("test elements")) /* )*/ /*  
 //   makeContainer("Fetched Dog Pictures"),
 // );
 //
-// ReactDOMRe.render(

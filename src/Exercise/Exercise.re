@@ -7,11 +7,11 @@ let updateHandler = (newReport, reports, index) =>
   reports->List.mapWithIndex((i, sR) => {index === i ? newReport : sR});
 
 type t = {
-  name: string,
+  name: option(string),
   reports: list(DayReport.t),
 };
 
-let newExercise: t = {name: "", reports: [DayReport.newDayReport]};
+let newExercise: t = {name: None, reports: [DayReport.newDayReport]};
 
 let onAddReport = (exercise, setSelectedReport, onExercisUpdate) => {
   setSelectedReport(_s => Some(exercise.reports->List.length));
@@ -35,7 +35,12 @@ let make = (~exercise: t, ~onExercisUpdate) => {
   let (selectedReport, setSelectedReport) = useState(() => None);
 
   <div className=Exercise_style.exerciseContainer>
-    <div className=Exercise_style.exerciseName> exercise.name->s </div>
+    <div className=Exercise_style.exerciseName>
+      {switch (exercise.name) {
+       | Some(name) => name->s
+       | None => null
+       }}
+    </div>
     {exercise.reports
      ->mapToElements((i, report) => {
          <div key={i->Int.toString} className=Exercise_style.dayReport>
