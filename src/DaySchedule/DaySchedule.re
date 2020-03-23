@@ -54,7 +54,7 @@ let make = (~daySchedule: t, ~onDayScheduleUpdate) => {
           <path
             fill="#CCCCCC"
             d="
-                M10 10 L250 290 L490 10 Z
+                M20 10 L250 290 L480 10 Z
               "
           />
           <path
